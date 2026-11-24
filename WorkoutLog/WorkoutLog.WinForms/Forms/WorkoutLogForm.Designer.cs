@@ -328,7 +328,7 @@
             // 
             lblTotalWorkoutsValue.AutoSize = true;
             lblTotalWorkoutsValue.Font = new Font("Segoe UI", 26F, FontStyle.Bold);
-            lblTotalWorkoutsValue.Location = new Point(-1, 40);
+            lblTotalWorkoutsValue.Location = new Point(18, 40);
             lblTotalWorkoutsValue.Name = "lblTotalWorkoutsValue";
             lblTotalWorkoutsValue.Size = new Size(43, 60);
             lblTotalWorkoutsValue.TabIndex = 1;
@@ -375,7 +375,7 @@
             lblExerciseEntriesValue.AutoSize = true;
             lblExerciseEntriesValue.Font = new Font("Segoe UI", 26F, FontStyle.Bold);
             lblExerciseEntriesValue.ForeColor = Color.FromArgb(32, 43, 60);
-            lblExerciseEntriesValue.Location = new Point(18, 48);
+            lblExerciseEntriesValue.Location = new Point(18, 40);
             lblExerciseEntriesValue.Name = "lblExerciseEntriesValue";
             lblExerciseEntriesValue.Size = new Size(43, 60);
             lblExerciseEntriesValue.TabIndex = 1;
