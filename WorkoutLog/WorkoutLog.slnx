@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="WorkoutLog.Core/WorkoutLog.Core.csproj" Id="a2b4c165-7a87-4f05-bb73-fead82e2a057" />
+  <Project Path="WorkoutLog.Data/WorkoutLog.Data.csproj" Id="820f0276-5cb2-41ec-8c72-f55e552c8ff5" />
+  <Project Path="WorkoutLog.WinForms/WorkoutLog.WinForms.csproj" Id="8f7c98bd-d2c8-4d81-8b5d-c537bc5c1f46" />
+</Solution>
