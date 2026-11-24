@@ -482,7 +482,7 @@
             // 
             colWorkoutDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             colWorkoutDate.DataPropertyName = "WorkoutDate";
-            dataGridViewCellStyle2.Format = "D";
+            dataGridViewCellStyle2.Format = "MMM dd, yyyy";
             dataGridViewCellStyle2.NullValue = null;
             colWorkoutDate.DefaultCellStyle = dataGridViewCellStyle2;
             colWorkoutDate.FillWeight = 30F;
