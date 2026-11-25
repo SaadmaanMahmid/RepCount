@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using WorkoutLog.Core.DTOs;
+﻿using WorkoutLog.Core.DTOs;
 
 namespace WorkoutLog.Core.Interfaces
 {
@@ -14,5 +11,6 @@ namespace WorkoutLog.Core.Interfaces
         Task<bool> DeleteWorkoutAsync(int workoutId);
         Task<int> GetWorkoutCountAsync();
         Task<int> GetExerciseEntryCountAsync();
+        Task<WorkoutStreakDTO> GetCurrentWorkoutStreakAsync();
     }
 }

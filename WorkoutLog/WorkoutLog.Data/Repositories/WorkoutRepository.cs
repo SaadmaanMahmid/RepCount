@@ -102,5 +102,11 @@ namespace WorkoutLog.Data.Repositories
         {
             return await _context.ExerciseEntries.CountAsync();
         }
+        public async Task<List<DateOnly>> GetWorkoutDatesAsync()
+        {
+            return await _context.Workouts
+                .Select(w => w.WorkoutDate)
+                .ToListAsync();
+        }
     }
 }

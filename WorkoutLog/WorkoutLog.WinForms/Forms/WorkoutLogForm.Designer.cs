@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
             tlpMain = new TableLayoutPanel();
             pnlSideBar = new Panel();
             tlpSidebar = new TableLayoutPanel();
@@ -61,6 +61,11 @@
             colWorkoutDate = new DataGridViewTextBoxColumn();
             colWorkoutName = new DataGridViewTextBoxColumn();
             colNotes = new DataGridViewTextBoxColumn();
+            pnlStreakCard = new Panel();
+            lblStreakTitle = new Label();
+            lblStreakValue = new Label();
+            lblStreakDescription = new Label();
+            lblStreakMessage = new Label();
             tlpMain.SuspendLayout();
             pnlSideBar.SuspendLayout();
             tlpSidebar.SuspendLayout();
@@ -74,6 +79,7 @@
             pnlRecent.SuspendLayout();
             tlpRecent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvRecentWorkouts).BeginInit();
+            pnlStreakCard.SuspendLayout();
             SuspendLayout();
             // 
             // tlpMain
@@ -284,11 +290,13 @@
             // 
             // tlpStats
             // 
-            tlpStats.ColumnCount = 2;
-            tlpStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tlpStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tlpStats.ColumnCount = 3;
+            tlpStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.32963F));
+            tlpStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3307381F));
+            tlpStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.33963F));
             tlpStats.Controls.Add(pnlTotalWorkoutsCard, 0, 0);
             tlpStats.Controls.Add(pnlExerciseEntriesCard, 1, 0);
+            tlpStats.Controls.Add(pnlStreakCard, 2, 0);
             tlpStats.Dock = DockStyle.Fill;
             tlpStats.Location = new Point(0, 0);
             tlpStats.Margin = new Padding(0);
@@ -310,7 +318,7 @@
             pnlTotalWorkoutsCard.Margin = new Padding(0, 5, 8, 5);
             pnlTotalWorkoutsCard.Name = "pnlTotalWorkoutsCard";
             pnlTotalWorkoutsCard.Padding = new Padding(18, 12, 18, 12);
-            pnlTotalWorkoutsCard.Size = new Size(445, 140);
+            pnlTotalWorkoutsCard.Size = new Size(293, 140);
             pnlTotalWorkoutsCard.TabIndex = 0;
             // 
             // lblTotalWorkoutsDescription
@@ -353,11 +361,11 @@
             pnlExerciseEntriesCard.Controls.Add(lblExerciseEntriesValue);
             pnlExerciseEntriesCard.Controls.Add(lblExerciseEntriesTitle);
             pnlExerciseEntriesCard.Dock = DockStyle.Fill;
-            pnlExerciseEntriesCard.Location = new Point(453, 5);
+            pnlExerciseEntriesCard.Location = new Point(301, 5);
             pnlExerciseEntriesCard.Margin = new Padding(0, 5, 0, 5);
             pnlExerciseEntriesCard.Name = "pnlExerciseEntriesCard";
             pnlExerciseEntriesCard.Padding = new Padding(18, 12, 18, 12);
-            pnlExerciseEntriesCard.Size = new Size(453, 140);
+            pnlExerciseEntriesCard.Size = new Size(301, 140);
             pnlExerciseEntriesCard.TabIndex = 1;
             // 
             // lblExerciseEntriesDescription
@@ -443,26 +451,26 @@
             dgvRecentWorkouts.BorderStyle = BorderStyle.None;
             dgvRecentWorkouts.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvRecentWorkouts.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(237, 241, 245);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(82, 97, 118);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(237, 241, 245);
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(82, 97, 118);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvRecentWorkouts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = Color.FromArgb(237, 241, 245);
+            dataGridViewCellStyle13.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dataGridViewCellStyle13.ForeColor = Color.FromArgb(82, 97, 118);
+            dataGridViewCellStyle13.SelectionBackColor = Color.FromArgb(237, 241, 245);
+            dataGridViewCellStyle13.SelectionForeColor = Color.FromArgb(82, 97, 118);
+            dataGridViewCellStyle13.WrapMode = DataGridViewTriState.True;
+            dgvRecentWorkouts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             dgvRecentWorkouts.ColumnHeadersHeight = 40;
             dgvRecentWorkouts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvRecentWorkouts.Columns.AddRange(new DataGridViewColumn[] { colWorkoutDate, colWorkoutName, colNotes });
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(32, 43, 60);
-            dataGridViewCellStyle3.Padding = new Padding(8, 0, 8, 0);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(226, 243, 242);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(32, 43, 60);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dgvRecentWorkouts.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = Color.White;
+            dataGridViewCellStyle15.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle15.ForeColor = Color.FromArgb(32, 43, 60);
+            dataGridViewCellStyle15.Padding = new Padding(8, 0, 8, 0);
+            dataGridViewCellStyle15.SelectionBackColor = Color.FromArgb(226, 243, 242);
+            dataGridViewCellStyle15.SelectionForeColor = Color.FromArgb(32, 43, 60);
+            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.False;
+            dgvRecentWorkouts.DefaultCellStyle = dataGridViewCellStyle15;
             dgvRecentWorkouts.Dock = DockStyle.Fill;
             dgvRecentWorkouts.EnableHeadersVisualStyles = false;
             dgvRecentWorkouts.GridColor = Color.FromArgb(235, 239, 243);
@@ -482,9 +490,9 @@
             // 
             colWorkoutDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             colWorkoutDate.DataPropertyName = "WorkoutDate";
-            dataGridViewCellStyle2.Format = "MMM dd, yyyy";
-            dataGridViewCellStyle2.NullValue = null;
-            colWorkoutDate.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Format = "MMM dd, yyyy";
+            dataGridViewCellStyle14.NullValue = null;
+            colWorkoutDate.DefaultCellStyle = dataGridViewCellStyle14;
             colWorkoutDate.FillWeight = 30F;
             colWorkoutDate.HeaderText = "DATE";
             colWorkoutDate.MinimumWidth = 6;
@@ -510,6 +518,65 @@
             colNotes.MinimumWidth = 6;
             colNotes.Name = "colNotes";
             colNotes.ReadOnly = true;
+            // 
+            // pnlStreakCard
+            // 
+            pnlStreakCard.BackColor = Color.White;
+            pnlStreakCard.BorderStyle = BorderStyle.FixedSingle;
+            pnlStreakCard.Controls.Add(lblStreakMessage);
+            pnlStreakCard.Controls.Add(lblStreakDescription);
+            pnlStreakCard.Controls.Add(lblStreakValue);
+            pnlStreakCard.Controls.Add(lblStreakTitle);
+            pnlStreakCard.Dock = DockStyle.Fill;
+            pnlStreakCard.Location = new Point(607, 5);
+            pnlStreakCard.Margin = new Padding(5);
+            pnlStreakCard.Name = "pnlStreakCard";
+            pnlStreakCard.Size = new Size(294, 140);
+            pnlStreakCard.TabIndex = 2;
+            // 
+            // lblStreakTitle
+            // 
+            lblStreakTitle.AutoSize = true;
+            lblStreakTitle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblStreakTitle.ForeColor = Color.DimGray;
+            lblStreakTitle.Location = new Point(18, 20);
+            lblStreakTitle.Name = "lblStreakTitle";
+            lblStreakTitle.Size = new Size(138, 20);
+            lblStreakTitle.TabIndex = 0;
+            lblStreakTitle.Text = "CURRENT STREAK";
+            // 
+            // lblStreakValue
+            // 
+            lblStreakValue.AutoSize = true;
+            lblStreakValue.Font = new Font("Segoe UI", 28F, FontStyle.Bold);
+            lblStreakValue.ForeColor = Color.MidnightBlue;
+            lblStreakValue.Location = new Point(18, 40);
+            lblStreakValue.Name = "lblStreakValue";
+            lblStreakValue.Size = new Size(54, 62);
+            lblStreakValue.TabIndex = 1;
+            lblStreakValue.Text = "0";
+            // 
+            // lblStreakDescription
+            // 
+            lblStreakDescription.AutoSize = true;
+            lblStreakDescription.ForeColor = Color.Gray;
+            lblStreakDescription.Location = new Point(18, 105);
+            lblStreakDescription.Name = "lblStreakDescription";
+            lblStreakDescription.Size = new Size(180, 20);
+            lblStreakDescription.TabIndex = 2;
+            lblStreakDescription.Text = "Consecutive workout days";
+            // 
+            // lblStreakMessage
+            // 
+            lblStreakMessage.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
+            lblStreakMessage.ForeColor = Color.Teal;
+            lblStreakMessage.Location = new Point(18, 100);
+            lblStreakMessage.Name = "lblStreakMessage";
+            lblStreakMessage.Size = new Size(260, 32);
+            lblStreakMessage.TabIndex = 3;
+            lblStreakMessage.Text = "Keep the momentum going!";
+            lblStreakMessage.TextAlign = ContentAlignment.MiddleLeft;
+            lblStreakMessage.Visible = false;
             // 
             // WorkoutLogForm
             // 
@@ -542,6 +609,8 @@
             tlpRecent.ResumeLayout(false);
             tlpRecent.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvRecentWorkouts).EndInit();
+            pnlStreakCard.ResumeLayout(false);
+            pnlStreakCard.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -577,5 +646,10 @@
         private DataGridViewTextBoxColumn colWorkoutDate;
         private DataGridViewTextBoxColumn colWorkoutName;
         private DataGridViewTextBoxColumn colNotes;
+        private Panel pnlStreakCard;
+        private Label lblStreakTitle;
+        private Label lblStreakValue;
+        private Label lblStreakDescription;
+        private Label lblStreakMessage;
     }
 }

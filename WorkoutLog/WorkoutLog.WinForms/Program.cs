@@ -33,8 +33,9 @@ namespace WorkoutLog.WinForms
             // Register the repository
             services.AddScoped<IWorkoutRepository, WorkoutRepository>();
 
-            // Register the service
+            // Register the services
             services.AddScoped<IWorkoutService, WorkoutService>();
+            services.AddScoped<WorkoutStreakCalculator>();
 
             // Register the main form
             services.AddTransient<WorkoutLogForm>();

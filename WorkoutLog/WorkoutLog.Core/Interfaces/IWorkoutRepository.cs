@@ -11,5 +11,6 @@ namespace WorkoutLog.Core.Interfaces
         Task<bool> DeleteWorkoutAsync(int workoutId);
         Task<int> GetWorkoutCountAsync();
         Task<int> GetExerciseEntryCountAsync();
+        Task<List<DateOnly>> GetWorkoutDatesAsync();
     }
 }
