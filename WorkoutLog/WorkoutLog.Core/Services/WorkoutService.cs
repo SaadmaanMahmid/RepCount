@@ -1,15 +1,17 @@
 ﻿using WorkoutLog.Core.DTOs;
 using WorkoutLog.Core.Interfaces;
-using WorkoutLog.Core.Services;
 
 namespace WorkoutLog.Core.Services
 {
     public class WorkoutService : IWorkoutService
     {
-         private readonly IWorkoutRepository _workoutRepository;
-        public WorkoutService(IWorkoutRepository workoutRepository)
+        private readonly IWorkoutRepository _workoutRepository;
+        private readonly WorkoutStreakCalculator _streakCalculator;
+
+        public WorkoutService(IWorkoutRepository workoutRepository, WorkoutStreakCalculator streakCalculator)
         {
             _workoutRepository = workoutRepository;
+            _streakCalculator = streakCalculator;
         }
         public async Task<List<WorkoutDTO>> GetAllWorkoutsAsync()
         {
@@ -52,6 +54,15 @@ namespace WorkoutLog.Core.Services
         public async Task<int> GetExerciseEntryCountAsync()
         {
             return await _workoutRepository.GetExerciseEntryCountAsync();
+        }
+        public async Task<WorkoutStreakDTO> GetCurrentWorkoutStreakAsync()
+        {
+            List<DateOnly> workoutDates =
+                await _workoutRepository.GetWorkoutDatesAsync();
+
+            DateOnly today = DateOnly.FromDateTime(DateTime.Today);
+
+            return _streakCalculator.Calculate(workoutDates, today);
         }
     }
 }

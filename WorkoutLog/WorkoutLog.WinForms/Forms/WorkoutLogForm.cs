@@ -1,4 +1,5 @@
 using WorkoutLog.Core.Interfaces;
+using WorkoutLog.Core.Services;
 
 namespace WorkoutLog.WinForms.Forms
 {
@@ -27,6 +28,8 @@ namespace WorkoutLog.WinForms.Forms
                 //Load dashboard statistics
                 int totalWorkouts = await _workoutService.GetWorkoutCountAsync();
                 int totalExerciseEntries = await _workoutService.GetExerciseEntryCountAsync();
+                // Load current workout streak
+                var streak = await _workoutService.GetCurrentWorkoutStreakAsync();
 
                 //Load the ten most recent exercises
                 var recentWorkouts = (await _workoutService.GetAllWorkoutsAsync())
@@ -38,6 +41,22 @@ namespace WorkoutLog.WinForms.Forms
                 //Update dashboard statistics
                 lblTotalWorkoutsValue.Text = totalWorkouts.ToString();
                 lblExerciseEntriesValue.Text = totalExerciseEntries.ToString();
+                // Update workout streak card
+                lblStreakValue.Text = streak.CurrentStreak.ToString();
+
+                if (streak.ShouldShowMotivationalMessage)
+                {
+                    lblStreakDescription.Visible = false;
+                    lblStreakMessage.Text =
+                        $"Congratulations! Your streak is now: {streak.CurrentStreak} days. Keep it up!";
+
+                    lblStreakMessage.Visible = true;
+                }
+                else
+                {
+                    lblStreakDescription.Visible = true;
+                    lblStreakMessage.Visible = false;
+                }
 
                 //Populate the recent workouts DataGridView
                 dgvRecentWorkouts.DataSource = recentWorkouts;
